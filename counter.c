@@ -45,11 +45,13 @@ static void __exit counter_exit(void) {
 
 static int dev_open(struct inode *inodep, struct file *filep) {
     printk(KERN_INFO "Counter device opened\n");
+    counter = 0;
     return 0;
 }
 
 static int dev_release(struct inode *inodep, struct file *filep) {
     printk(KERN_INFO "Counter device closed\n");
+    counter = 0;
     return 0;
 }
 
